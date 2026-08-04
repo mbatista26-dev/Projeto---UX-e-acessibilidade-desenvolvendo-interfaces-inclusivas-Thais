@@ -1,10 +1,11 @@
 :root {
-    --primaria: #003366;
-    --secundaria: #ffcc00;
-    --perigo: #cc0000;
+    --primaria: #0a2540;
+    --secundaria: #ff5722;
+    --sucesso: #00a86b;
+    --perigo: #d32f2f;
     --texto: #1a1a1a;
-    --fundo: #ffffff;
-    --fundo-cartao: #f0f4f8;
+    --fundo: #f8f9fa;
+    --fundo-cartao: #ffffff;
 }
 
 * {
@@ -14,135 +15,135 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    font-size: 22px;
-    /* Fonte aumentada para leitura */
-    line-height: 1.5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    line-height: 1.6;
     color: var(--texto);
     background-color: var(--fundo);
 }
 
-/* --- MENU DE ACESSIBILIDADE --- */
+/* --- BARRA DE ACESSIBILIDADE --- */
 .barra-acessibilidade {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: #333;
+    background: var(--primaria);
     color: white;
-    padding: 10px;
+    padding: 12px;
     display: flex;
     justify-content: center;
     gap: 15px;
     z-index: 1000;
-    flex-wrap: wrap;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .botao-controle {
     background: white;
-    color: #333;
+    color: var(--primaria);
     border: 2px solid var(--secundaria);
-    padding: 10px 15px;
+    padding: 8px 16px;
     font-weight: bold;
     cursor: pointer;
     border-radius: 8px;
     font-size: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    transition: background 0.2s;
 }
 
 .botao-controle:hover {
     background: var(--secundaria);
+    color: white;
 }
 
 .botao-leitura {
-    background: #28a745;
+    background: var(--sucesso);
     color: white;
     border: none;
 }
 
-/* 1. Início: Banner com Botão de Ajuda */
+.botao-leitura:hover {
+    background: #008f5a;
+}
+
+/* --- BANNER PRINCIPAL --- */
 .banner {
     background-color: var(--primaria);
     color: white;
-    padding: 50px 20px;
+    padding: 60px 20px 40px;
     text-align: center;
-    border-bottom: 10px solid var(--secundaria);
+    border-bottom: 8px solid var(--secundaria);
 }
 
 .banner h1 {
     font-size: 2.5rem;
-    margin-bottom: 20px;
-    padding-top: 70px;
+    margin-bottom: 15px;
+    padding-top: 50px;
 }
 
 .botao-ajuda {
     display: inline-block;
     background-color: var(--perigo);
     color: white;
-    padding: 20px 40px;
-    text-decoration: none;
+    padding: 18px 36px;
     font-weight: bold;
     border-radius: 50px;
-    font-size: 1.5rem;
-    border: 4px solid white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s;
+    font-size: 1.2rem;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.1s;
 }
 
 .botao-ajuda:active {
-    transform: scale(0.95);
+    transform: scale(0.96);
 }
 
+/* --- CONTEÚDO --- */
 .conteudo {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* --- MODAL --- */
 .modal-fundo {
     display: none;
     position: fixed;
-    z-index: 1000;
+    z-index: 1001;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.75);
 }
 
-/* O que fazer agora? */
 .modal-conteudo {
-    background-color: #fff9e6;
+    background-color: white;
     padding: 40px;
     border-radius: 15px;
-    border: 2px dashed var(--primaria);
-
+    border: 3px solid var(--secundaria);
     position: relative;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
     max-width: 90%;
-    width: 600px;
-    margin: 0 !important;
+    width: 550px;
 }
 
-ol {
-    padding: 40px;
+.modal-conteudo ol {
+    margin: 20px 0;
+    padding-left: 25px;
 }
 
+/* --- CARTOES E SEÇÕES --- */
 h2 {
     color: var(--primaria);
     border-bottom: 4px solid var(--secundaria);
     margin: 40px 0 20px;
-    padding-bottom: 10px;
-    font-size: 2rem;
+    padding-bottom: 8px;
+    font-size: 1.8rem;
 }
 
-/* 2. Dicas Importantes */
 .grade-dicas {
     display: grid;
     gap: 20px;
@@ -150,93 +151,49 @@ h2 {
 
 .cartao-dica {
     background: var(--fundo-cartao);
-    padding: 20px;
-    border-radius: 15px;
-    border-left: 15px solid var(--primaria);
+    padding: 24px;
+    border-radius: 12px;
+    border-left: 10px solid var(--secundaria);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .cartao-dica strong {
     display: block;
-    font-size: 1.4rem;
-    margin-bottom: 5px;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
     color: var(--primaria);
 }
 
-/* 3. Direitos na Internet */
 .caixa-direitos {
-    background-color: #fff9e6;
-    padding: 40px;
-    border-radius: 15px;
-    border: 2px dashed var(--primaria);
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0;
 }
 
-.caixa-direitos p {
-    margin-bottom: 15px;
+.caixa-direitos ul {
+    margin-top: 15px;
+    padding-left: 20px;
 }
 
-/* --- SEÇÃO GOLPES --- */
-.alerta-golpe {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 20px;
+.caixa-direitos li {
+    margin-bottom: 10px;
 }
 
-.alerta-golpe li {
-    background: #fff5f5;
-    padding: 25px;
-    border-radius: 20px;
-    border: 2px solid #ffe3e3;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    transition: background 0.2s;
-}
-
-.alerta-golpe li:hover {
-    background: #fff1f1;
-}
-
-.alerta-golpe .icone-alerta {
-    font-size: 2.5rem;
-    background: var(--branco);
-    width: 70px;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    flex-shrink: 0;
-    box-shadow: 0 4px 8px rgba(211, 47, 47, 0.1);
-}
-
+/* --- RODAPÉ --- */
 footer {
-    display: block;
     background: var(--primaria);
     color: white;
     text-align: center;
-    padding: 40px 20px;
+    padding: 30px 20px;
     margin-top: 50px;
 }
 
-/* Ajustes para Celular */
 @media (max-width: 600px) {
-    body {
-        font-size: 20px;
-    }
-
     .banner h1 {
         font-size: 1.8rem;
-        padding-top: 80px;
     }
-
     .botao-ajuda {
         width: 100%;
-        padding: 15px;
     }
-}
-
-/* Rolagem suave para o botão funcionar elegantemente */
-html {
-    scroll-behavior: smooth;
 }

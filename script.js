@@ -1,79 +1,80 @@
-// CÓDIGO DO MODAL
-let btnAjuda = document.querySelector(".botao-ajuda");
-let btnFechar = document.querySelector(".botao-fechar");
-let modal = document.querySelector(".modal-fundo");
+// CONTROLE DO MODAL DE EMERGÊNCIA
+const btnAjuda = document.querySelector(".botao-ajuda");
+const btnFechar = document.querySelector(".botao-fechar");
+const modal = document.querySelector(".modal-fundo");
 
-btnAjuda.addEventListener("click", abreModal);
-btnFechar.addEventListener("click", fechaModal);
-
-function abreModal() {
+btnAjuda.addEventListener("click", () => {
     modal.style.display = "block";
-}
+});
 
-function fechaModal() {
+btnFechar.addEventListener("click", () => {
     modal.style.display = "none";
-}
+});
 
+// FECHAR MODAL AO CLICAR FORA DELE
+window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});
 
-// TAMANHO DE FONTES
-let tamanhoFonteAtual = 16;
-const valorAdicionado = 2;
-const valorSubtraido = 2;
+// CONTROLE DO TAMANHO DA FONTE
+let tamanhoFonteAtual = 100; // Usa porcentagem para melhor acessibilidade
+const passo = 10;
 
-let btnAumentaFonte = document.getElementById("btnAumentaTexto");
-let btnDiminuiFonte = document.getElementById("btnDiminuiTexto");
+const btnAumentaFonte = document.getElementById("btnAumentaTexto");
+const btnDiminuiFonte = document.getElementById("btnDiminuiTexto");
 
-btnAumentaFonte.addEventListener("click", aumentaFonte);
-btnDiminuiFonte.addEventListener("click", diminuiFonte);
+btnAumentaFonte.addEventListener("click", () => {
+    if (tamanhoFonteAtual < 150) {
+        tamanhoFonteAtual += passo;
+        document.body.style.fontSize = `${tamanhoFonteAtual}%`;
+    }
+});
 
-function aumentaFonte() {
-    tamanhoFonteAtual = tamanhoFonteAtual + valorAdicionado;
-    document.documentElement.style.fontSize = `${tamanhoFonteAtual}px`;
-}
+btnDiminuiFonte.addEventListener("click", () => {
+    if (tamanhoFonteAtual > 80) {
+        tamanhoFonteAtual -= passo;
+        document.body.style.fontSize = `${tamanhoFonteAtual}%`;
+    }
+});
 
-function diminuiFonte() {
-    tamanhoFonteAtual = tamanhoFonteAtual - valorSubtraido;
-    document.documentElement.style.fontSize = `${tamanhoFonteAtual}px`;
-}
-
-// LEITURA DE TELA
-
+// SÍNTESE DE VOZ (LEITURA DE TELA)
 let lendo = false;
-
-let btnLeitura = document.querySelector(".botao-leitura");
+const btnLeitura = document.querySelector(".botao-leitura");
 
 btnLeitura.addEventListener("click", lerEmVozAlta);
 
 function lerEmVozAlta() {
-
-    // se já está lendo
-    if (lendo == true) {
-
-        // se estiver pausado 
-        if (speechSynthesis.paused == true){
-            // continua de onde parou
+    if (lendo) {
+        if (speechSynthesis.paused) {
             speechSynthesis.resume();
+            btnLeitura.textContent = "⏸️ Pausar Leitura";
         } else {
-            // pausa
             speechSynthesis.pause();
+            btnLeitura.textContent = "▶️ Continuar Leitura";
         }
         return;
     }
 
-    let conteudo = document.querySelector("main");
-    let texto = conteudo.innerText;
+    const conteudo = document.querySelector("main");
+    const texto = conteudo.innerText;
 
-    let fala = new SpeechSynthesisUtterance(texto);
-
+    const fala = new SpeechSynthesisUtterance(texto);
     fala.lang = "pt-BR";
+    fala.rate = 0.95; // Velocidade levemente reduzida para maior clareza
+
     fala.onend = finalizarLeitura;
+    fala.onerror = finalizarLeitura;
 
-    lendo = true
+    lendo = true;
+    btnLeitura.textContent = "⏸️ Pausar Leitura";
 
-    speechSynthesis.cancel();
+    speechSynthesis.cancel(); // Limpa falas anteriores da fila
     speechSynthesis.speak(fala);
 }
 
 function finalizarLeitura() {
     lendo = false;
+    btnLeitura.textContent = "🔊 Ouvir Página";
 }

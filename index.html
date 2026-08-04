@@ -4,119 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Segurança Digital para Idosos</title>
+    <title>Guia Rápido de Primeiros Socorros</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- MENU DE ACESSIBILIDADE -->
     <nav class="barra-acessibilidade" aria-label="Controles de Acessibilidade">
         <button id="btnAumentaTexto" class="botao-controle" title="Aumentar texto">A+</button>
         <button id="btnDiminuiTexto" class="botao-controle" title="Diminuir texto">A-</button>
-        <button id="btnVoz" class="botao-controle botao-leitura" >🔊</button>
+        <button id="btnVoz" class="botao-controle botao-leitura" aria-label="Ouvir texto">🔊 Ouvir Página</button>
     </nav>
 
     <main>
 
-        <!-- 1. INÍCIO -->
         <section class="banner">
-            <h1>Guia de Segurança Digital</h1>
-            <p style="margin-bottom: 30px;">Proteja-se e navegue com tranquilidade.</p>
-            <a href="#contato-ajuda" class="botao-ajuda">PRECISO DE AJUDA AGORA</a>
+            <h1>Guia de Primeiros Socorros</h1>
+            <p style="margin-bottom: 30px;">Informações rápidas que podem salvar vidas.</p>
+            <button class="botao-ajuda">LIGAR PARA EMERGÊNCIA</button>
         </section>
 
         <div class="conteudo">
 
             <div class="modal-fundo">
-
-                <!-- SEÇÃO DE DESTINO DO BOTÃO DE AJUDA -->
-                <section id="contato-ajuda" style="margin-top: 60px; background: #eef;" class="modal-conteudo">
-                    <h2 style="margin-top: 0;">O que fazer agora?</h2>
-                    <p>Se você acha que caiu em um golpe ou está com medo de uma mensagem:</p>
+                <section class="modal-conteudo">
+                    <h2>Telefones de Emergência</h2>
+                    <p>Em caso de extrema urgência, ligue imediatamente:</p>
                     <ol>
-                        <li><strong>Pare tudo o que está fazendo.</strong></li>
-                        <li><strong>Ligue para um filho, neto ou amigo próximo.</strong></li>
-                        <li><strong>Ligue para o seu banco</strong> usando o número que está atrás do seu cartão.</li>
-                        <li><strong>Registre um Boletim de Ocorrência</strong> na delegacia mais próxima ou pela
-                            internet.
-                        </li>
+                        <li><strong>192:</strong> SAMU (Ambulância)</li>
+                        <li><strong>193:</strong> Corpo de Bombeiros (Resgate e Incêndios)</li>
+                        <li><strong>190:</strong> Polícia Militar</li>
                     </ol>
                     <button class="botao-ajuda botao-fechar">Fechar</button>
                 </section>
             </div>
 
-
-            <!-- 2. DICAS IMPORTANTES -->
             <section id="dicas">
-                <h2>Dicas Importantes</h2>
+                <h2>O Que Fazer em Emergências</h2>
                 <div class="grade-dicas">
                     <div class="cartao-dica">
-                        <strong>1. Use senhas longas</strong>
-                        Prefira frases que você gosta em vez de apenas números. Exemplo: "EuAmoMinhaFamilia2024!".
+                        <strong>1. Mantenha a calma</strong>
+                        Avalie o ambiente para garantir que você também não corra perigo antes de ajudar.
                     </div>
                     <div class="cartao-dica">
-                        <strong>2. Desconfie de urgência</strong>
-                        Se alguém pedir dinheiro rápido dizendo que é emergência, pare e ligue para a pessoa antes.
+                        <strong>2. Peça ajuda</strong>
+                        Chame o serviço de emergência (SAMU 192 ou Bombeiros 193) antes de tentar manobras complexas.
                     </div>
                     <div class="cartao-dica">
-                        <strong>3. Não clique em tudo</strong>
-                        Links que prometem prêmios ou dinheiro fácil geralmente são armadilhas.
+                        <strong>3. Não mova a vítima</strong>
+                        Em caso de quedas ou acidentes de trânsito, não mova a pessoa para evitar lesões na coluna.
                     </div>
                 </div>
             </section>
 
-            <!-- 3. DIREITOS NA INTERNET -->
             <section id="direitos">
-                <h2>Direitos na Internet</h2>
+                <h2>Ações Básicas de Socorro</h2>
                 <div class="caixa-direitos">
-                    <p>Você sabia que no Brasil existe o <strong>Marco Civil da Internet</strong> e a
-                        <strong>LGPD</strong>?
-                        Essas leis garantem que você tenha direitos básicos no mundo digital:</p>
+                    <p>Conhecer os procedimentos certos faz toda a diferença:</p>
                     <ul>
-                        <li><strong>Privacidade:</strong> Suas conversas e dados pessoais não podem ser expostos sem sua
-                            permissão.</li>
-                        <li><strong>Liberdade de Expressão:</strong> Você tem o direito de se manifestar, desde que não
-                            ofenda ninguém.</li>
-                        <li><strong>Proteção de Dados:</strong> Empresas devem cuidar bem das suas informações (nome,
-                            CPF,
-                            endereço).</li>
-                        <li><strong>Direito ao Esquecimento:</strong> Em alguns casos, você pode pedir que informações
-                            antigas sobre você sejam removidas.</li>
+                        <li><strong>Engasgo:</strong> Realize a manobra de compressão abdominal (Manobra de Heimlich).</li>
+                        <li><strong>Queimaduras:</strong> Lave o local apenas com água corrente fria. Nunca use sabão, pasta de dente ou manteiga.</li>
+                        <li><strong>Desmaio:</strong> Deite a pessoa de costas e eleve as pernas para facilitar a circulação de sangue no cérebro.</li>
                     </ul>
                 </div>
             </section>
 
-            <!-- 4. COMO SABER SE ESTOU CAINDO EM UM GOLPE? -->
-            <section id="golpes">
-                <h2>Sinais de um Golpe</h2>
-                <p style="margin-bottom: 20px;">Fique atento a estas atitudes suspeitas:</p>
-                <ul class="alerta-golpe">
-                    <li><strong>Pedido de segredo:</strong> O golpista pede para você não contar para ninguém sobre a
-                        conversa ou a transação.</li>
-                    <li><strong>Erros de português:</strong> Mensagens de bancos ou empresas famosas com muitos erros de
-                        escrita são sinais claros de fraude.</li>
-                    <li><strong>Falso funcionário:</strong> Pessoas que ligam dizendo ser do banco e pedem para você
-                        confirmar sua senha ou entregar o cartão.</li>
-                    <li><strong>Número desconhecido com foto de conhecido:</strong> Alguém usa a foto de um parente seu
-                        e
-                        diz: "Mudei meu número, me faz um PIX?".</li>
-                </ul>
-            </section>
-
-
-
         </div>
 
         <footer>
-            <p><strong>Segurança Digital para a Melhor Idade</strong></p>
-            <p>Este guia é informativo. Nunca compartilhe sua senha com estranhos.</p>
+            <p><strong>Guia Informativo de Primeiros Socorros</strong></p>
+            <p>Este site é educativo e não substitui o atendimento médico profissional.</p>
         </footer>
     </main>
 
-
     <script src="script.js"></script>
-
 </body>
 
 </html>
